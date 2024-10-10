@@ -1,41 +1,110 @@
-# Toaster
+# Toaster-Angular
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+[![npm version](https://badge.fury.io/js/toaster-angular.svg)](https://www.npmjs.com/package/toaster-angular) ![npm downloads](https://img.shields.io/npm/dt/toaster-angular.svg) ![License](https://img.shields.io/npm/l/toaster-angular.svg)
 
-## Code scaffolding
+Toaster-Angular is a lightweight, customizable, and responsive toast notification library built for Angular applications. It allows developers to easily display alert messages (success, error, info, etc.) in various positions on the screen with animations and close actions.
 
-Run `ng generate component component-name --project toaster` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project toaster`.
+## Features
 
-> Note: Don't forget to add `--project toaster` or else it will be added to the default project in your `angular.json` file.
+- **Customizable:** Modify the position, type, and message content with ease.
+- **Lightweight:** Minimal footprint for quick setup and fast performance.
+- **Animated:** Smooth animations for entering and exiting toast notifications.
+- **Responsive:** Works well on both mobile and desktop screens.
+<!-- - **Custom Icons:** Add different icons based on the toast type (success, error, info, etc.). -->
 
-## Build
+## Installation
 
-Run `ng build toaster` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get started with `toaster-angular`, you can install it via npm:
 
-## Publishing
+```bash
+npm install toaster-angular
 
-After building your library with `ng build toaster`, go to the dist folder `cd dist/toaster` and run `npm publish`.
+Usage
+To start using Toaster-Angular, follow the steps below.
 
-## Running unit tests
+Step 1: Import the Module
+You need to import ToasterModule in your Angular application.
 
-Run `ng test toaster` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { ToasterModule } from 'toaster-angular';
 
-## Further help
+@NgModule({
+  imports: [ToasterModule]
+})
+export class AppModule {}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Add ToasterModule to your imports array in the app module configuration.
 
-<button (click)="showSuccess()">Show Success</button>
-<button (click)="showError()">Show Error</button>
-<button (click)="showWarning()">Show Warning</button>
+@NgModule({
+  imports: [ToasterModule]
+})
+export class AppModule {}
 
-showSuccess() {
- this.toasterService.showToast('Operation Successful!', 'success', 3000, 'center-center');
+Step 2: Displaying Toasts
+Use the ToasterService to display toast notifications.
+
+constructor(private toasterService: ToasterService) {}
+
+showToast() {
+  this.toasterService.showToast({
+    text: 'This is a success message!',
+    type: 'success'
+  });
 }
 
-showError() {
- this.toasterService.showToast('An error occurred!', 'error', 4000, 'bottom-center');
-}
+Step 3: Customize Toast Position
+You can set the toast notification position on the screen by providing the position option.
 
-showWarning() {
- this.toasterService.showToast('This is a warning!', 'warning', 5000, 'bottom-right');
-}
+this.toasterService.showToast({
+  text: 'This is an info message!',
+  type: 'info',
+  position: 'top-right'
+});
+
+Available positions:
+
+top-left
+top-right
+bottom-left
+bottom-right
+center
+Step 4: Toast Types
+You can customize the toast based on the type. Supported types include:
+
+success
+error
+info
+The library will apply different styles and icons depending on the type of toast.
+
+this.toasterService.showToast({
+  text: 'Operation completed successfully!',
+  type: 'success'
+});
+
+this.toasterService.showToast({
+  text: 'Something went wrong!',
+  type: 'error'
+});
+
+Step 5: Dismiss and Auto-Close
+Each toast can be configured to auto-dismiss after a specified duration, or users can manually dismiss it by clicking a close button.
+
+this.toasterService.showToast({
+  text: 'This message will disappear in 5 seconds!',
+  type: 'info',
+  autoClose: true,
+  duration: 5000
+});
+
+
+Development
+If you want to contribute to the project or modify it for your own use, clone the repository and install the dependencies:
+
+git clone https://github.com/yourusername/toaster-angular.git
+cd toaster-angular
+npm install
+
+To build the project:
+npm run build
+
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
