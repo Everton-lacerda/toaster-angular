@@ -1,15 +1,18 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
+# Build output directories
 /dist
 /tmp
 /out-tsc
 /bazel-out
 
-# Node
+# Dependencies
 /node_modules
-npm-debug.log
-yarn-error.log
+/projects/toaster/node_modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # IDEs and editors
 .idea/
@@ -20,23 +23,48 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
-.vscode/*
+# Visual Studio Code settings
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
-# Miscellaneous
+# History (for VSCode extensions like Local History)
+.history/
+
+# Angular cache
 /.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
 
-# System files
+# Coverage directory used by testing tools
+/coverage
+
+# Cache and temporary files
+.sass-cache/
+connect.lock
+
+# Other system files
 .DS_Store
 Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Testing-related
+testem.log
+libpeerconnection.log
+
+# Typings
+/typings
+
+# Miscellaneous
+*.env
+.env.local
+.env.*.local
+
+# Ignore lock files, except package-lock.json if needed for deterministic builds
+# If you don't want to track lock files, add them here (uncomment):
+# /package-lock.json
+# /yarn.lock
+# /pnpm-lock.yaml
