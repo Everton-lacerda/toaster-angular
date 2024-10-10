@@ -1,0 +1,5 @@
+<div class="toast" [ngClass]="message.type">
+  <!-- <span class="toast-icon">{{ getIcon(message.type) }}</span> -->
+  <span class="toast-message">{{ message.text }}</span>
+  <button class="toast-close" (click)="closeToast()">&#x2715;</button>
+</div>

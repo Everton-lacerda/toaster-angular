@@ -1,0 +1,3 @@
+<div class="toast-container" *ngFor="let message of messages" [ngClass]="message.position">
+  <app-toast-message [message]="message" (close)="removeToast(message.id)"></app-toast-message>
+</div>
