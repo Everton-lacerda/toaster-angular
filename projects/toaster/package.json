@@ -1,6 +1,6 @@
 {
   "name": "toaster-angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight, customizable toast notification library for Angular.",
   "main": "dist/toaster-angular/bundles/toaster-angular.umd.js",
   "repository": {
